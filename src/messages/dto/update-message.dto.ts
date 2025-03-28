@@ -1,12 +1,9 @@
-import { IsEnum, IsOptional, IsString, Matches } from 'class-validator';
+import { IsEnum, IsOptional, IsString, IsNumber } from 'class-validator';
 
 export class UpdateMessageDto {
   @IsOptional()
   @IsString()
-  @Matches(/^(\+\d{1,3}[- ]?)?\d{10}$/, { 
-    message: 'Phone number must be valid (e.g., 1234567890 or +1 1234567890)'
-  })
-  phoneNumber?: string;
+  sender?: string;
 
   @IsOptional()
   @IsString()
@@ -15,4 +12,8 @@ export class UpdateMessageDto {
   @IsOptional()
   @IsEnum(['pending', 'sent', 'failed'])
   status?: 'pending' | 'sent' | 'failed';
+
+  @IsOptional()
+  @IsNumber()
+  time?: number;
 } 

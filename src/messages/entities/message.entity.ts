@@ -6,7 +6,7 @@ export class Message {
   id: string;
 
   @Column({ type: 'varchar', length: 20 })
-  phoneNumber: string;
+  sender: string;
 
   @Column({ type: 'text' })
   message: string;
@@ -18,6 +18,9 @@ export class Message {
   })
   status: 'pending' | 'sent' | 'failed';
 
+  @Column({ type: 'bigint' })
+  time: number;
+
   @CreateDateColumn({ name: 'created_at' })
-  time: Date;
+  createdAt: Date;
 } 
