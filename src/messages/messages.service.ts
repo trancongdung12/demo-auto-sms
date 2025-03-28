@@ -43,4 +43,9 @@ export class MessagesService {
       throw new NotFoundException(`Message with ID ${id} not found`);
     }
   }
+
+  async clearAll(): Promise<{ message: string }> {
+    await this.messagesRepository.clear();
+    return { message: 'All messages have been deleted successfully' };
+  }
 } 

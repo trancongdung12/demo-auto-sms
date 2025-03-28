@@ -35,4 +35,9 @@ export class MessagesController {
   remove(@Param('id') id: string): Promise<void> {
     return this.messagesService.remove(id);
   }
+
+  @Delete()
+  clearAll(): Promise<{ message: string }> {
+    return this.messagesService.clearAll();
+  }
 } 
