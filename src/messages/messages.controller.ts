@@ -13,6 +13,11 @@ export class MessagesController {
     return this.messagesService.create(createMessageDto);
   }
 
+  @Post('sms-verify')
+  createSmsVerify(@Body() createMessageDto: CreateMessageDto): Promise<Message> {
+    return this.messagesService.create(createMessageDto);
+  }
+
   @Get()
   findAll(): Promise<Message[]> {
     return this.messagesService.findAll();
